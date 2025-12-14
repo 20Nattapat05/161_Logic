@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>หน่วยที่: 1</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f8f9fa;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1B3C53;
+            text-align: center;
+        }
+
+        .card-body {
+            background-color: #E3E3E3;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.65);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>หน่วยที่: 1</h1>
+
+    <div class="container">
+
+        <!-- ข้อ 1 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>1. จงเขียนถ้อยแถลงต่อไปนี้ ให้อยู่ในรูปแบบสัญลักษณ์</h5>
+
+                <p class="mb-2"><strong>กำหนดให้</strong></p>
+                <ul class="mb-3">
+                    <li><strong>P:</strong> DataFlag มีค่าเป็น Off</li>
+                    <li><strong>Q:</strong> Error มีค่าเป็น 0</li>
+                    <li><strong>R:</strong> Sum &lt; 1,000</li>
+                </ul>
+
+                <p class="mb-0"><strong>(a)</strong> Error ไม่มีค่าเป็น 0 แต่ DataFlag มีค่าเป็น Off</p>
+                <p class="mb-3"><strong>คำตอบ:</strong> <code>¬Q ∧ P</code></p>
+
+                <p class="mb-0"><strong>(b)</strong> DataFlag มีค่าเป็น On หรือ Sum ≥ 1,000 อย่างใดอย่างหนึ่ง</p>
+                <p class="mb-1"><strong>คำตอบ:</strong> <code>¬P ⊕ ¬R</code></p>
+                <p class="mb-3 text-muted">(*รูปแบบเทียบเท่า*) <code>(¬P ∧ R) ∨ (P ∧ ¬R)</code></p>
+
+                <p class="mb-0"><strong>(c)</strong> DataFlag มีค่าเป็น Off หรือไม่ก็ Error มีค่าเป็น 0 จึงเป็นเหตุให้
+                    Sum &lt; 1,000</p>
+                <p class="mb-0"><strong>คำตอบ:</strong> <code>(P ∨ Q) → R</code></p>
+            </div>
+        </div>
+
+        <!-- ข้อ 2 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>2. จากข้อ 1(a, b, c) จงใช้กฎของเดอมอร์แกน เขียนถ้อยแถลงตรงกันข้าม เป็นภาษาแบบ informal</h5>
+
+                <p class="mb-2"><strong>กำหนดให้</strong></p>
+                <ul class="mb-3">
+                    <li><strong>P:</strong> DataFlag มีค่าเป็น Off</li>
+                    <li><strong>Q:</strong> Error มีค่าเป็น 0</li>
+                    <li><strong>R:</strong> Sum &lt; 1,000</li>
+                </ul>
+
+                <p class="mb-0"><strong>(a) ตรงกันข้ามของ</strong> <code>¬Q ∧ P</code></p>
+                <p class="mb-1"><strong>สัญลักษณ์:</strong> <code>Q ∨ ¬P</code></p>
+                <p class="mb-3"><strong>Informal:</strong> “Error เป็น 0 หรือ DataFlag ไม่ได้เป็น Off (คือเป็น On)”</p>
+
+                <p class="mb-0"><strong>(b) ตรงกันข้ามของ</strong> <code>¬P ⊕ ¬R</code></p>
+                <p class="mb-1"><strong>สัญลักษณ์:</strong> <code>(¬P ∧ ¬R) ∨ (P ∧ R)</code></p>
+                <p class="mb-3"><strong>Informal:</strong> “(DataFlag เป็น On และ Sum ≥ 1,000) หรือ (DataFlag เป็น Off
+                    และ Sum &lt; 1,000)”</p>
+
+                <p class="mb-0"><strong>(c) ตรงกันข้ามของ</strong> <code>(P ∨ Q) → R</code></p>
+                <p class="mb-1"><strong>สัญลักษณ์:</strong> <code>(P ∨ Q) ∧ ¬R</code></p>
+                <p class="mb-0"><strong>Informal:</strong> “DataFlag เป็น Off หรือ Error เป็น 0 แต่ Sum ไม่ได้น้อยกว่า
+                    1,000 (คือ Sum ≥ 1,000)”</p>
+            </div>
+        </div>
+
+        <!-- ข้อ 3 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>3. จากข้อ 1(c) จงเขียนบทกลับ บทแย้ง และบทผกผัน เป็นภาษาแบบ informal</h5>
+
+                <p class="mb-2"><strong>จากข้อ 1(c):</strong> <code>(P ∨ Q) → R</code></p>
+                <ul class="mb-3">
+                    <li><strong>P:</strong> DataFlag = Off</li>
+                    <li><strong>Q:</strong> Error = 0</li>
+                    <li><strong>R:</strong> Sum &lt; 1,000</li>
+                </ul>
+
+                <p class="mb-0"><strong>บทกลับ (Converse)</strong></p>
+                <p class="mb-1"><strong>สัญลักษณ์:</strong> <code>R → (P ∨ Q)</code></p>
+                <p class="mb-3"><strong>Informal:</strong> “ถ้า Sum น้อยกว่า 1,000 แล้ว DataFlag เป็น Off หรือ Error
+                    เป็น 0”</p>
+
+                <p class="mb-0"><strong>บทผกผัน (Inverse)</strong></p>
+                <p class="mb-1"><strong>สัญลักษณ์:</strong> <code>¬(P ∨ Q) → ¬R</code> <span class="text-muted">(เท่ากับ
+                        <code>(¬P ∧ ¬Q) → ¬R</code>)</span></p>
+                <p class="mb-3"><strong>Informal:</strong> “ถ้า DataFlag ไม่เป็น Off (คือเป็น On) และ Error ไม่เป็น 0
+                    แล้ว Sum ไม่ได้น้อยกว่า 1,000 (คือ Sum ≥ 1,000)”</p>
+
+                <p class="mb-0"><strong>บทแย้ง (Contrapositive)</strong></p>
+                <p class="mb-1"><strong>สัญลักษณ์:</strong> <code>¬R → ¬(P ∨ Q)</code> <span class="text-muted">(เท่ากับ
+                        <code>¬R → (¬P ∧ ¬Q)</code>)</span></p>
+                <p class="mb-0"><strong>Informal:</strong> “ถ้า Sum ไม่ได้น้อยกว่า 1,000 (คือ Sum ≥ 1,000) แล้ว DataFlag
+                    ไม่เป็น Off (คือเป็น On) และ Error ไม่เป็น 0”</p>
+            </div>
+        </div>
+
+        <!-- ข้อ 4 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>4. จงใช้กฎของพีชคณิตบูลีน แสดงวิธีพิสูจน์ว่า</h5>
+
+                <div class="mb-4">
+                    <p class="mb-2"><strong>(a)</strong> <code>¬(P ∨ ¬Q) ∨ (¬P ∧ ¬Q) ⇔ ¬P</code></p>
+                    <p class="mb-2"><strong>พิสูจน์:</strong></p>
+                    <ol class="mb-0">
+                        <li>
+                            <code>¬(P ∨ ¬Q) ∨ (¬P ∧ ¬Q)</code>
+                        </li>
+                        <li>
+                            <code>(¬P ∧ Q) ∨ (¬P ∧ ¬Q)</code>
+                            <span class="text-muted"> (De Morgan: ¬(P ∨ ¬Q)=¬P ∧ ¬(¬Q)=¬P ∧ Q)</span>
+                        </li>
+                        <li>
+                            <code>¬P ∧ (Q ∨ ¬Q)</code>
+                            <span class="text-muted"> (Distributive)</span>
+                        </li>
+                        <li>
+                            <code>¬P ∧ 1</code>
+                            <span class="text-muted"> (Complement: Q ∨ ¬Q = 1)</span>
+                        </li>
+                        <li>
+                            <code>¬P</code>
+                            <span class="text-muted"> (Identity: X ∧ 1 = X)</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div>
+                    <p class="mb-2"><strong>(b)</strong> <code>(P→(Q→R)) ↔ ((P∧Q)→R) ⇔ ?</code></p>
+                    <p class="mb-2"><strong>พิสูจน์:</strong></p>
+                    <ol class="mb-0">
+                        <li>
+                            แปลงอิมพลิเคชัน: <code>A→B = ¬A ∨ B</code>
+                        </li>
+                        <li>
+                            <code>P→(Q→R) = ¬P ∨ (¬Q ∨ R) = ¬P ∨ ¬Q ∨ R</code>
+                        </li>
+                        <li>
+                            <code>(P∧Q)→R = ¬(P∧Q) ∨ R = (¬P ∨ ¬Q) ∨ R = ¬P ∨ ¬Q ∨ R</code>
+                        </li>
+                        <li>
+                            ดังนั้นได้ว่า ทั้งสองข้าง “เหมือนกัน” ให้ <code>X = (¬P ∨ ¬Q ∨ R)</code> จะได้
+                            <code>X ↔ X</code>
+                        </li>
+                        <li>
+                            <code>X ↔ X = (X∧X) ∨ (¬X∧¬X) = X ∨ ¬X = 1</code>
+                        </li>
+                    </ol>
+                    <p class="mt-2 mb-0"><strong>สรุป:</strong> <code>(P→(Q→R)) ↔ ((P∧Q)→R) ⇔ 1</code> <span
+                            class="text-muted">(เป็นจริงเสมอ / Tautology)</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ข้อ 5 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>5. จงเขียนตารางความจริง เพื่อพิสูจน์ว่าข้อโต้แย้งต่อไปนี้ สมเหตุสมผลหรือไม่</h5>
+
+                <p class="mb-2"><strong>กำหนดให้</strong></p>
+                <ul class="mb-3">
+                    <li><strong>P:</strong> ฉันได้ของขวัญปีใหม่</li>
+                    <li><strong>Q:</strong> ฉันเขียนโปรแกรมขายได้</li>
+                    <li><strong>R:</strong> ฉันจะซื้อ tablet</li>
+                </ul>
+
+                <p class="mb-1"><strong>เหตุ (Premises):</strong> <code>P → R</code> และ <code>Q → R</code></p>
+                <p class="mb-3"><strong>ผล (Conclusion):</strong> <code>(P ∨ Q) → R</code></p>
+
+                <p class="mb-2"><strong>ตรวจสอบด้วยตารางความจริง</strong> โดยดูสูตรรวมของข้อโต้แย้ง:</p>
+                <p class="mb-3">
+                    <code>[(P→R) ∧ (Q→R)] → [(P∨Q)→R]</code>
+                </p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle text-center mb-3">
+                        <thead class="table-light">
+                            <tr>
+                                <th>P</th>
+                                <th>Q</th>
+                                <th>R</th>
+                                <th>P→R</th>
+                                <th>Q→R</th>
+                                <th>P∨Q</th>
+                                <th>(P∨Q)→R</th>
+                                <th>(P→R)∧(Q→R)</th>
+                                <th>
+                                    <span class="d-block">A</span>
+                                    <small class="text-muted">[(P→R)∧(Q→R)]→[(P∨Q)→R]</small>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>T</td>
+                                <td>T</td>
+                                <td><strong>T</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mb-0">
+                    <strong>สรุป:</strong> คอลัมน์ <strong>A</strong> เป็นจริง (T) ทุกกรณี ⇒ ข้อโต้แย้งนี้
+                    <strong>สมเหตุสมผล</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- ข้อ 6 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>6. จงหาว่า ใครคือฆาตกร</h5>
+
+                <p class="mb-2"><strong>กำหนดสัญลักษณ์</strong></p>
+                <ul class="mb-3">
+                    <li><strong>C:</strong> ท่านลอร์ดถูกฆ่าตายด้วยเชิงเทียนตีศีรษะ</li>
+                    <li><strong>Pz:</strong> ท่านลอร์ดตายด้วยการวางยาพิษ</li>
+                    <li><strong>W:</strong> ภรรยาอยู่ในห้องกินข้าว ณ เวลานั้น</li>
+                    <li><strong>S:</strong> ซาร่า (สาวใช้) อยู่ในห้องกินข้าว ณ เวลานั้น</li>
+                    <li><strong>K:</strong> พ่อครัวอยู่ในห้องครัว ณ เวลานั้น</li>
+                    <li><strong>H:</strong> หัวหน้าคนใช้วางยาพิษให้ท่านลอร์ด</li>
+                    <li><strong>D:</strong> คนขับรถเป็นคนลงมือฆ่า</li>
+                    <li><strong>V:</strong> คนเสิร์ฟไวน์เป็นคนฆ่าท่านลอร์ด</li>
+                </ul>
+
+                <p class="mb-2"><strong>แปลงเงื่อนไขจากโจทย์เป็นตรรกศาสตร์</strong></p>
+                <ul class="mb-3">
+                    <li>(a) <code>C</code> และโดยความหมาย “ตายด้วยเชิงเทียน” ⇒ <code>¬Pz</code></li>
+                    <li>(b) <code>W ∨ S</code></li>
+                    <li>(c) <code>K → H</code></li>
+                    <li>(d) <code>W → D</code></li>
+                    <li>(e) <code>¬K → ¬S</code></li>
+                    <li>(f) <code>S → V</code></li>
+                    <li class="text-muted">
+                        สมมติฐานที่ใช้เชื่อมเหตุผล: ถ้า “วางยาพิษให้ท่านลอร์ด” ⇒ “ท่านลอร์ดตายด้วยยาพิษ”
+                        คือ <code>H → Pz</code>
+                    </li>
+                </ul>
+
+                <p class="mb-2"><strong>พิสูจน์ (Derivation)</strong></p>
+                <ol class="mb-3">
+                    <li>จาก (a) ได้ <code>¬Pz</code></li>
+                    <li>จากสมมติฐาน <code>H → Pz</code> และข้อ 1 ⇒ <code>¬H</code> (Modus Tollens)</li>
+                    <li>จาก (c) <code>K → H</code> และข้อ 2 (<code>¬H</code>) ⇒ <code>¬K</code> (Modus Tollens)</li>
+                    <li>จาก (e) <code>¬K → ¬S</code> และข้อ 3 ⇒ <code>¬S</code> (Modus Ponens)</li>
+                    <li>จาก (b) <code>W ∨ S</code> และข้อ 4 (<code>¬S</code>) ⇒ <code>W</code> (Disjunctive Syllogism)
+                    </li>
+                    <li>จาก (d) <code>W → D</code> และข้อ 5 ⇒ <code>D</code> (Modus Ponens)</li>
+                </ol>
+
+                <p class="mb-0">
+                    <strong>สรุป:</strong> <code>D</code> เป็นจริง ⇒ <strong>คนขับรถเป็นฆาตกร</strong><br />
+                    <span class="text-muted">หมายเหตุ: (f) ไม่ขัดแย้ง เพราะเราได้ <code>¬S</code> แล้ว
+                        จึงไม่จำเป็นต้องได้ <code>V</code></span>
+                </p>
+            </div>
+        </div>
+
+        <!-- ข้อ 7 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>7. จงเขียนเป็นภาษาแบบ formal</h5>
+
+                <p class="mb-2"><strong>กำหนดสัญลักษณ์ (Predicates) ที่ใช้</strong></p>
+                <ul class="mb-3">
+                    <li><code>Odd(x)</code>: x เป็นจำนวนคี่</li>
+                    <li><code>EngComp(s)</code>: s เป็นนักศึกษาวิศวกรรมคอมพิวเตอร์</li>
+                    <li><code>LearnLogic(s)</code>: s ต้องเรียนตรรกศาสตร์</li>
+                    <li><code>Book(b)</code>: b เป็นหนังสือ</li>
+                    <li><code>Person(p)</code>: p เป็นคน</li>
+                    <li><code>Read(p,b)</code>: p อ่านหนังสือ b</li>
+                    <li><code>Color(c)</code>: c เป็นสี</li>
+                    <li><code>Animal(a)</code>: a เป็นสัตว์</li>
+                    <li><code>HasColor(a,c)</code>: สัตว์ a มีสี c</li>
+                </ul>
+
+                <p class="mb-0"><strong>(a)</strong> ผลคูณของสองจำนวนคี่ใดๆ จะได้เป็นจำนวนคี่</p>
+                <p class="mb-3"><strong>Formal:</strong> <code>∀x∀y ((Odd(x) ∧ Odd(y)) → Odd(x·y))</code></p>
+
+                <p class="mb-0"><strong>(b)</strong> นักศึกษาวิศวกรรมคอมพิวเตอร์ทุกคน จะต้องเรียนตรรกศาสตร์</p>
+                <p class="mb-3"><strong>Formal:</strong> <code>∀s (EngComp(s) → LearnLogic(s))</code></p>
+
+                <p class="mb-0"><strong>(c)</strong> หนังสือบางเล่มถูกอ่านโดยทุกคน</p>
+                <p class="mb-3"><strong>Formal:</strong> <code>∃b (Book(b) ∧ ∀p (Person(p) → Read(p,b)))</code></p>
+
+                <p class="mb-0"><strong>(d)</strong> ทุกสีเป็นสีที่มีในสัตว์ทุกตัว</p>
+                <p class="mb-0"><strong>Formal:</strong> <code>∀c (Color(c) → ∀a (Animal(a) → HasColor(a,c)))</code></p>
+            </div>
+        </div>
+
+        <!-- ข้อ 8 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>8. จงเขียนเป็นภาษาแบบ informal</h5>
+
+                <p class="mb-1"><strong>(a) โจทย์:</strong></p>
+                <p class="mb-2">
+                    <code>∀ จำนวนเต็ม a และ b, ถ้า a และ b เป็นเลขคู่ แล้ว a+b เป็นเลขคู่</code>
+                </p>
+                <p class="mb-3"><strong>Informal:</strong> “ผลบวกของจำนวนเต็มคู่สองจำนวน จะเป็นจำนวนคู่เสมอ”</p>
+
+                <p class="mb-1"><strong>(b) โจทย์:</strong></p>
+                <p class="mb-2">
+                    <code>∀ นักศึกษา s, ถ้า s เรียนวิศวกรรมคอมพิวเตอร์ แล้วต้องเรียนอัลกอริทึม</code>
+                </p>
+                <p class="mb-3"><strong>Informal:</strong> “นักศึกษาทุกคน ถ้าเรียนวิศวกรรมคอมพิวเตอร์
+                    ก็ต้องเรียนวิชาอัลกอริทึม”</p>
+
+                <p class="mb-1"><strong>(c) โจทย์:</strong></p>
+                <p class="mb-2">
+                    <code>∀ คน p ∃ หนังสือ b, p อ่าน b</code>
+                </p>
+                <p class="mb-3"><strong>Informal:</strong> “ทุกคนมีหนังสืออย่างน้อยหนึ่งเล่มที่เขาอ่าน”</p>
+
+                <p class="mb-1"><strong>(d) โจทย์:</strong></p>
+                <p class="mb-2">
+                    <code>∃ สี c ∀ สัตว์ a, a มีสี c</code>
+                </p>
+                <p class="mb-0"><strong>Informal:</strong> “มีสีอย่างน้อยหนึ่งสีที่สัตว์ทุกตัวมีสีนี้”</p>
+            </div>
+        </div>
+
+        <!-- ข้อ 9 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>9. จากข้อ 8(a, b, c, d) จงเขียนถ้อยแถลงตรงกันข้าม (ปฏิเสธ) เป็นภาษาแบบ informal</h5>
+
+                <p class="mb-1"><strong>(a) โจทย์เดิม:</strong></p>
+                <p class="mb-2"><code>∀ จำนวนเต็ม a และ b, ถ้า a และ b เป็นเลขคู่ แล้ว a+b เป็นเลขคู่</code></p>
+                <p class="mb-1"><strong>ตรงกันข้าม (informal):</strong></p>
+                <p class="mb-3">“มีจำนวนเต็ม a และ b บางคู่ที่เป็นเลขคู่ทั้งคู่ แต่ a+b ไม่เป็นเลขคู่ (คือเป็นเลขคี่)”
+                </p>
+
+                <p class="mb-1"><strong>(b) โจทย์เดิม:</strong></p>
+                <p class="mb-2"><code>∀ นักศึกษา s, ถ้า s เรียนวิศวกรรมคอมพิวเตอร์ แล้วต้องเรียนอัลกอริทึม</code></p>
+                <p class="mb-1"><strong>ตรงกันข้าม (informal):</strong></p>
+                <p class="mb-3">“มีนักศึกษาบางคนที่เรียนวิศวกรรมคอมพิวเตอร์ แต่ไม่ได้เรียนวิชาอัลกอริทึม”</p>
+
+                <p class="mb-1"><strong>(c) โจทย์เดิม:</strong></p>
+                <p class="mb-2"><code>∀ คน p ∃ หนังสือ b, p อ่าน b</code></p>
+                <p class="mb-1"><strong>ตรงกันข้าม (informal):</strong></p>
+                <p class="mb-3">“มีคนอย่างน้อยหนึ่งคนที่ไม่มีหนังสือสักเล่มที่เขาอ่าน”</p>
+
+                <p class="mb-1"><strong>(d) โจทย์เดิม:</strong></p>
+                <p class="mb-2"><code>∃ สี c ∀ สัตว์ a, a มีสี c</code></p>
+                <p class="mb-1"><strong>ตรงกันข้าม (informal):</strong></p>
+                <p class="mb-0">“สำหรับทุกสี จะมีสัตว์อย่างน้อยหนึ่งตัวที่ไม่มีสีนั้น
+                    (ไม่มีสีใดที่สัตว์ทุกตัวมีร่วมกัน)”</p>
+            </div>
+        </div>
+
+
+        <!-- ข้อ 10 -->
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>10. จงใช้กฎการลงความเห็น พิจารณาว่าข้อโต้แย้งต่อไปนี้ สมเหตุสมผลหรือไม่</h5>
+
+                <!-- 10(a) -->
+                <div class="mb-4">
+                    <p class="mb-1"><strong>(a) โจทย์:</strong></p>
+                    <p class="mb-1">นักศึกษาทุกคน ถ้าเรียนตรรกศาสตร์แล้วจะเก่งคอมพิวเตอร์</p>
+                    <p class="mb-1">สมหญิงเรียนตรรกศาสตร์</p>
+                    <p class="mb-2">ดังนั้น สมหญิงเก่งคอมพิวเตอร์</p>
+
+                    <p class="mb-1"><strong>ให้</strong> <code>S(x)</code>: x เป็นนักศึกษา, <code>L(x)</code>: x
+                        เรียนตรรกศาสตร์, <code>C(x)</code>: x เก่งคอมพิวเตอร์</p>
+                    <p class="mb-1"><strong>Formal:</strong> <code>∀x (S(x) → (L(x) → C(x)))</code>,
+                        <code>L(สมหญิง)</code></p>
+                    <p class="mb-2"><strong>สรุปที่ต้องการ:</strong> <code>C(สมหญิง)</code></p>
+
+                    <p class="mb-1"><strong>พิจารณา:</strong> จาก <code>L(สมหญิง)</code> อย่างเดียว ยังสรุป
+                        <code>C(สมหญิง)</code> ไม่ได้ เว้นแต่รู้ว่า <code>S(สมหญิง)</code> ด้วย</p>
+                    <p class="mb-0"><strong>ผล:</strong> <span class="text-danger"><strong>ไม่สมเหตุสมผล</strong></span>
+                        (ข้อมูลไม่พอ / ต้องมี <code>S(สมหญิง)</code>)</p>
+                </div>
+
+                <!-- 10(b) -->
+                <div class="mb-4">
+                    <p class="mb-1"><strong>(b) โจทย์:</strong></p>
+                    <p class="mb-1">ทุกคนที่มีงานทำ จะต้องเสียภาษี</p>
+                    <p class="mb-1">สมชายไม่มีงานทำ</p>
+                    <p class="mb-2">ดังนั้น สมชายไม่ต้องเสียภาษี</p>
+
+                    <p class="mb-1"><strong>ให้</strong> <code>J(x)</code>: x มีงานทำ, <code>T(x)</code>: x ต้องเสียภาษี
+                    </p>
+                    <p class="mb-1"><strong>Formal:</strong> <code>∀x (J(x) → T(x))</code>, <code>¬J(สมชาย)</code></p>
+                    <p class="mb-2"><strong>สรุปที่อ้าง:</strong> <code>¬T(สมชาย)</code></p>
+
+                    <p class="mb-1"><strong>พิจารณา:</strong> รูปแบบคือ “ถ้า J แล้ว T; ไม่ J; ดังนั้น ไม่ T” =
+                        การปฏิเสธเหตุ (Denying the antecedent) ซึ่งผิด</p>
+                    <p class="mb-0"><strong>ผล:</strong> <span class="text-danger"><strong>ไม่สมเหตุสมผล</strong></span>
+                    </p>
+                </div>
+
+                <!-- 10(c) -->
+                <div class="mb-4">
+                    <p class="mb-1"><strong>(c) โจทย์:</strong></p>
+                    <p class="mb-1">ถ้าค่าใดเป็นจำนวนคู่ แล้วสองเท่าของค่านั้นก็จะเป็นเลขคู่</p>
+                    <p class="mb-1">2n เป็นเลขคู่</p>
+                    <p class="mb-2">เพราะฉะนั้น n เป็นเลขคู่</p>
+
+                    <p class="mb-1"><strong>ให้</strong> <code>E(x)</code>: x เป็นเลขคู่</p>
+                    <p class="mb-1"><strong>Formal:</strong> <code>∀n (E(n) → E(2n))</code>, <code>E(2n)</code></p>
+                    <p class="mb-2"><strong>สรุปที่อ้าง:</strong> <code>E(n)</code></p>
+
+                    <p class="mb-1"><strong>พิจารณา:</strong> รูปแบบคือ “ถ้า E(n) แล้ว E(2n); E(2n); ดังนั้น E(n)” =
+                        ยืนยันตาม (Affirming the consequent) ซึ่งผิด</p>
+                    <p class="mb-0"><strong>ผล:</strong> <span class="text-danger"><strong>ไม่สมเหตุสมผล</strong></span>
+                    </p>
+                </div>
+
+                <!-- 10(d) -->
+                <div>
+                    <p class="mb-1"><strong>(d) โจทย์:</strong></p>
+                    <p class="mb-1">ถ้าผลคูณของสองจำนวนใดๆ เป็น 0 แล้วค่าใดค่าหนึ่งต้องเป็น 0</p>
+                    <p class="mb-1">ทั้ง (x-1) และ (x+1) ไม่เป็น 0</p>
+                    <p class="mb-2">เพราะฉะนั้น (x-1)(x+1) ≠ 0</p>
+
+                    <p class="mb-1"><strong>ให้</strong> <code>A</code>: (x-1)=0, <code>B</code>: (x+1)=0</p>
+                    <p class="mb-1"><strong>Formal:</strong> <code>((x-1)(x+1)=0) → (A ∨ B)</code>, และมี
+                        <code>¬A ∧ ¬B</code></p>
+                    <p class="mb-2"><strong>ใช้บทแย้ง (Contrapositive):</strong>
+                        <code>¬(A ∨ B) → ((x-1)(x+1) ≠ 0)</code> และ <code>¬(A ∨ B)</code> มาจาก <code>¬A ∧ ¬B</code>
+                    </p>
+
+                    <p class="mb-0"><strong>ผล:</strong> <span class="text-success"><strong>สมเหตุสมผล</strong></span>
+                        (ใช้กฎ Modus Ponens กับบทแย้ง / De Morgan ได้)</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
