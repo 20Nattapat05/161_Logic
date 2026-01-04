@@ -1,102 +1,196 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-<meta charset="UTF-8">
-<title>Encoder แบบ Combinational Logic</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-body{background:#f5f7fa;font-family:Kanit;padding:30px}
-h1{color:#1B3C53;text-align:center}
-.card{border-radius:15px}
-.step{background:#fff;padding:15px;border-radius:10px;margin-top:10px}
-.math{font-family:monospace}
-pre{background:#fff;padding:15px;border-radius:10px}
-</style>
+    <meta charset="UTF-8">
+    <title>Encoder 10 → 4 Binary 1’s Complement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f6fb;
+            font-family: Kanit;
+            padding: 30px
+        }
+
+        h1,
+        h2 {
+            color: #102C57;
+            text-align: center
+        }
+
+        .card {
+            border-radius: 16px
+        }
+
+        .step {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px
+        }
+
+        .math {
+            font-family: monospace;
+            font-size: 17px
+        }
+
+        pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px
+        }
+    </style>
 </head>
 
 <body>
-<h1>Encoder 10 → 4 แบบ 1’s Complement (Combinational Logic)</h1>
 
-<div class="container">
+    <h1>รายงานการออกแบบวงจร Encoder 10 → 4</h1>
+    <h2>Binary 1’s Complement + LED 7 Segment</h2>
 
-<div class="card my-4">
-<div class="card-body">
-<h5>1. Problem Statement</h5>
-<div class="step">
-ออกแบบวงจร Encoder จากสวิตช์ 10 ตัว (D0–D9) ให้แสดงผลออกมาเป็น Binary 1’s Complement 4 บิต  
-โดยเป็นวงจร <b>Combinational Logic</b> (ไม่มี Clock / Memory)
-</div>
-</div>
-</div>
+    <div class="container">
 
-<div class="card my-4">
-<div class="card-body">
-<h5>2. Truth Table</h5>
-<table class="table table-bordered text-center bg-white">
-<tr><th>Decimal</th><th>Input</th><th>Y3Y2Y1Y0</th></tr>
-<tr><td>0</td><td>D0</td><td>1111</td></tr>
-<tr><td>1</td><td>D1</td><td>1110</td></tr>
-<tr><td>2</td><td>D2</td><td>1101</td></tr>
-<tr><td>3</td><td>D3</td><td>1100</td></tr>
-<tr><td>4</td><td>D4</td><td>1011</td></tr>
-<tr><td>5</td><td>D5</td><td>1010</td></tr>
-<tr><td>6</td><td>D6</td><td>1001</td></tr>
-<tr><td>7</td><td>D7</td><td>1000</td></tr>
-<tr><td>8</td><td>D8</td><td>0111</td></tr>
-<tr><td>9</td><td>D9</td><td>0110</td></tr>
-</table>
-</div>
-</div>
+        <!-- STEP 1 -->
+        <div class="card my-4">
+            <div class="card-body">
+                <h5>1.1 Step 1 : Problem Statement / Specification</h5>
+                <div class="step">
+                    ออกแบบวงจร Encoder จากสวิตช์ 10 ตัว (D0–D9)
+                    แปลงเลขฐานสิบ 0–9 เป็น Binary 4 บิตแบบ 1’s Complement
+                    โดยเป็นวงจร Combinational Logic (ไม่มี Clock / Memory)
+                </div>
+            </div>
+        </div>
 
-<div class="card my-4">
-<div class="card-body">
-<h5>3. Boolean Expression (Minimized)</h5>
-<div class="step math">
-Y3 = D0 + D1 + D2 + D3 + D4 + D5 + D6 + D7<br>
-Y2 = D0 + D1 + D2 + D3 + D8 + D9<br>
-Y1 = D0 + D1 + D4 + D5 + D8 + D9<br>
-Y0 = D0 + D2 + D4 + D6 + D8
-</div>
-</div>
-</div>
+        <!-- STEP 2 -->
+        <div class="card my-4">
+            <div class="card-body">
+                <h5>1.2 Step 2 : Conceptualization</h5>
+                <div class="step">
+                    <ul>
+                        <li>แปลงเลข 0–9 เป็น Binary 4 บิต</li>
+                        <li>ทำ 1’s Complement (กลับทุกบิต)</li>
+                        <li>สร้าง Truth Table</li>
+                        <li>ลดรูปสมการด้วย Karnaugh Map</li>
+                        <li>สร้างวงจรด้วย OR Gate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<div class="card my-4">
-<div class="card-body">
-<h5>4. Combinational Circuit Realization</h5>
-<div class="step">
-นำสมการไปต่อวงจรด้วย OR Gate เท่านั้น จึงเป็นวงจร Combinational Logic 100%
-<pre>
-D0 ─┬────────────┐
-D1 ─┤            │
-D2 ─┤   OR 8     ├── Y3
-D3 ─┤            │
-D4 ─┤            │
-D5 ─┤            │
-D6 ─┤            │
-D7 ─┘────────────┘
+        <!-- STEP 3 -->
+        <div class="card my-4">
+            <div class="card-body">
+                <h5>1.3 Step 3 : Solution / Simplification</h5>
+
+                <h6>Truth Table</h6>
+                <table class="table table-bordered bg-white text-center">
+                    <tr>
+                        <th>Decimal</th>
+                        <th>Input</th>
+                        <th>Y3Y2Y1Y0</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>D0</td>
+                        <td>1111</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>D1</td>
+                        <td>1110</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>D2</td>
+                        <td>1101</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>D3</td>
+                        <td>1100</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>D4</td>
+                        <td>1011</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>D5</td>
+                        <td>1010</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>D6</td>
+                        <td>1001</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>D7</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>D8</td>
+                        <td>0111</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>D9</td>
+                        <td>0110</td>
+                    </tr>
+                </table>
+
+                <h6>Boolean Expression (Minimized)</h6>
+                <div class="step math">
+                    Y3 = D0 + D1 + D2 + D3 + D4 + D5 + D6 + D7 <br>
+                    Y2 = D0 + D1 + D2 + D3 + D8 + D9 <br>
+                    Y1 = D0 + D1 + D4 + D5 + D8 + D9 <br>
+                    Y0 = D0 + D2 + D4 + D6 + D8
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="card my-4">
+            <div class="card-body">
+                <h5>1.4 Step 4 : Realization</h5>
+                <div class="step">
+                    วงจรสร้างด้วย OR Gate เท่านั้น เป็น Combinational Logic 100%
+                    <pre>
+D0 ─┐
+D1 ─┤
+D2 ─┤
+D3 ─┤
+D4 ─┤── OR ── Y3
+D5 ─┤
+D6 ─┤
+D7 ─┘
 </pre>
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
 
-<div class="card my-4">
-<div class="card-body">
-<h5>5. 7-Segment (Common Cathode)</h5>
-<div class="step">
-<table class="table table-bordered bg-white text-center">
-<tr><th>Segment</th><th>ต่อจาก</th></tr>
-<tr><td>a</td><td>Y3</td></tr>
-<tr><td>b</td><td>Y2</td></tr>
-<tr><td>c</td><td>Y1</td></tr>
-<tr><td>d</td><td>Y0</td></tr>
-<tr><td>e</td><td>Y0</td></tr>
-<tr><td>f</td><td>Y1</td></tr>
-<tr><td>g</td><td>Y2</td></tr>
-</table>
-</div>
-</div>
-</div>
+        <!-- 7 Segment -->
+        <div class="card my-4">
+            <div class="card-body">
+                <h5>2. LED 7 Segment</h5>
 
-</div>
+                <h6>Common Cathode</h6>
+                <div class="step">
+                    Cathode ของทุก Segment รวมกันต่อ GND
+                    ติดด้วย Logic 1 (HIGH)
+                </div>
+
+                <h6>Common Anode</h6>
+                <div class="step">
+                    Anode ของทุก Segment รวมกันต่อ Vcc
+                    ติดด้วย Logic 0 (LOW)
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
+
 </html>
