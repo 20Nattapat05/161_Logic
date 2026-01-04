@@ -1,96 +1,273 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-<meta charset="UTF-8">
-<title>Karnaugh Map หน่วยที่ 4 (สลับแกน)</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-body{background:#f4f6f9;font-family:Kanit;padding:30px}
-h1{text-align:center;color:#1B3C53;margin-bottom:30px}
-.kmap td,.kmap th{text-align:center;border:1px solid #555;padding:10px}
-.kmap th{background:#1B3C53;color:white}
-.one{background:#8aff8a;font-weight:bold}
-.zero{background:#ffd6d6}
-.card{border-radius:15px}
-</style>
+    <meta charset="UTF-8">
+    <title>Karnaugh Map หน่วยที่ 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: Kanit;
+            padding: 30px
+        }
+
+        h1 {
+            text-align: center;
+            color: #1B3C53;
+            margin-bottom: 30px
+        }
+
+        .card {
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .08)
+        }
+
+        .kmap {
+            border-collapse: collapse;
+            margin: auto
+        }
+
+        .kmap th,
+        .kmap td {
+            border: 1px solid #555;
+            width: 70px;
+            height: 55px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .kmap th {
+            background: #1B3C53;
+            color: #fff
+        }
+
+        .one {
+            background: #8aff8a
+        }
+
+        .zero {
+            background: #ffd6d6
+        }
+
+        .dc {
+            background: #eee;
+            color: #666
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>แผนผังคาร์โนห์ หน่วยที่ 4 (สลับแกน)</h1>
-<div class="container">
+    <h1>แผนผังคาร์โนห์ หน่วยที่ 4</h1>
+    <div class="container">
 
-<!-- 1 -->
-<div class="card p-3 mb-4">
-<h5>1) f(A,B) = Σm(0,1,2)</h5>
-<table class="kmap w-50 mx-auto">
-<tr><th>B\A</th><th>0</th><th>1</th></tr>
-<tr><th>0</th><td class="one">1</td><td class="one">1</td></tr>
-<tr><th>1</th><td class="one">1</td><td class="zero">0</td></tr>
-</table>
-<p><b>f = A̅ + B̅</b></p>
-</div>
+        <!-- 1 -->
+        <div class="card p-3 mb-4">
+            <h5>1) f(A,B) = Σm(0,1,2)</h5>
+            <table class="kmap">
+                <tr>
+                    <th>B\A</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="one">1</td>
+                    <td></td>
+                </tr>
+            </table>
+            <p><b>f = A̅ + B̅</b></p>
+        </div>
 
-<!-- 2 -->
-<div class="card p-3 mb-4">
-<h5>2) f(A,B) = ΠM(0,1,2)</h5>
-<table class="kmap w-50 mx-auto">
-<tr><th>B\A</th><th>0</th><th>1</th></tr>
-<tr><th>0</th><td class="zero">0</td><td class="zero">0</td></tr>
-<tr><th>1</th><td class="zero">0</td><td class="one">1</td></tr>
-</table>
-<p><b>f = AB</b></p>
-</div>
+        <!-- 2 -->
+        <div class="card p-3 mb-4">
+            <h5>2) f(A,B) = ΠM(0,1,2)</h5>
+            <table class="kmap">
+                <tr>
+                    <th>B\A</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="zero">0</td>
+                    <td></td>
+                </tr>
+            </table>
+            <p><b>f = AB</b></p>
+        </div>
 
-<!-- 3.1 -->
-<div class="card p-3 mb-4">
-<h5>3.1) f(A,B,C) = Σm(0,1,2,3,4,5)</h5>
-<table class="kmap w-75 mx-auto">
-<tr><th>C\AB</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
-<tr><th>0</th><td class="one">1</td><td class="one">1</td><td class="zero">0</td><td class="one">1</td></tr>
-<tr><th>1</th><td class="one">1</td><td class="one">1</td><td class="zero">0</td><td class="one">1</td></tr>
-</table>
-<p><b>f = A̅ + B̅</b></p>
-</div>
+        <!-- 3.1 -->
+        <div class="card p-3 mb-4">
+            <h5>3.1) f(A,B,C) = Σm(0,1,2,3,4,5)</h5>
+            <table class="kmap">
+                <tr>
+                    <th>C\AB</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                    <td class="one">1</td>
+                </tr>
+            </table>
+            <p><b>f = A̅ + B̅</b></p>
+        </div>
 
-<!-- 3.2 -->
-<div class="card p-3 mb-4">
-<h5>3.2) f(A,B,C,D)</h5>
-<table class="kmap w-100">
-<tr><th>CD\AB</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
-<tr><th>00</th><td class="zero">0</td><td class="one">1</td><td class="one">1</td><td class="zero">0</td></tr>
-<tr><th>01</th><td class="zero">0</td><td class="one">1</td><td class="one">1</td><td class="zero">0</td></tr>
-<tr><th>11</th><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td></tr>
-<tr><th>10</th><td class="zero">0</td><td class="one">1</td><td class="one">1</td><td class="zero">0</td></tr>
-</table>
-<p><b>f = BC̅ + ACD̅</b></p>
-</div>
+        <!-- 3.2 -->
+        <div class="card p-3 mb-4">
+            <h5>3.2) f(A,B,C,D)</h5>
+            <table class="kmap">
+                <tr>
+                    <th>CD\AB</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td></td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td></td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td></td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                </tr>
+            </table>
+            <p><b>f = BC̅ + ACD̅</b></p>
+        </div>
 
-<!-- 4.1 -->
-<div class="card p-3 mb-4">
-<h5>4.1) f(A,B,C,D)</h5>
-<table class="kmap w-100">
-<tr><th>CD\AB</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
-<tr><th>00</th><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td></tr>
-<tr><th>01</th><td class="one">1</td><td class="one">1</td><td class="zero">0</td><td class="one">1</td></tr>
-<tr><th>11</th><td class="one">1</td><td class="one">1</td><td class="zero">0</td><td class="one">1</td></tr>
-<tr><th>10</th><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td></tr>
-</table>
-<p><b>f = D(A̅ + B̅C̅)</b></p>
-</div>
+        <!-- 4.1 -->
+        <div class="card p-3 mb-4">
+            <h5>4.1) f(A,B,C,D)</h5>
+            <table class="kmap">
+                <tr>
+                    <th>CD\AB</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td></td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p><b>f = D(A̅ + B̅C̅)</b></p>
+        </div>
 
-<!-- 4.2 -->
-<div class="card p-3 mb-4">
-<h5>4.2) f(A,B,C,D)</h5>
-<table class="kmap w-100">
-<tr><th>CD\AB</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
-<tr><th>00</th><td class="zero">0</td><td class="zero">0</td><td class="one">1</td><td class="zero">0</td></tr>
-<tr><th>01</th><td class="one">1</td><td class="one">1</td><td class="one">1</td><td class="one">1</td></tr>
-<tr><th>11</th><td class="one">1</td><td class="one">1</td><td class="one">1</td><td class="one">1</td></tr>
-<tr><th>10</th><td class="zero">0</td><td class="zero">0</td><td class="one">1</td><td class="zero">0</td></tr>
-</table>
-<p><b>f = B + C + D</b></p>
-</div>
+        <!-- 4.2 -->
+        <div class="card p-3 mb-4">
+            <h5>4.2) f(A,B,C,D)</h5>
+            <table class="kmap">
+                <tr>
+                    <th>CD\AB</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td></td>
+                    <td></td>
+                    <td class="one">1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td></td>
+                    <td></td>
+                    <td class="one">1</td>
+                    <td></td>
+                </tr>
+            </table>
+            <p><b>f = B + C + D</b></p>
+        </div>
 
-</div>
+    </div>
 </body>
+
 </html>
