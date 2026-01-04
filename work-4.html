@@ -4,123 +4,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน่วยที่: 4</title>
+    <title>Karnaugh Map หน่วยที่ 4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Kanit', sans-serif;
-            background-color: #f8f9fa;
-            padding: 30px;
+            background: #f4f6f9;
+            font-family: Kanit;
+            padding: 30px
         }
 
         h1 {
-            color: #1B3C53;
             text-align: center;
+            color: #1B3C53;
+            margin-bottom: 30px
         }
 
-        .card-body {
-            background-color: #E3E3E3;
-            padding: 20px;
-            border-radius: 10px;
+        .kmap td,
+        .kmap th {
+            text-align: center;
+            border: 1px solid #555;
+            padding: 10px
         }
 
-        .math {
-            font-family: monospace;
-            font-size: 1.1rem;
+        .kmap th {
+            background: #1B3C53;
+            color: white
         }
 
-        .step {
-            background: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 10px;
-            font-size: 0.95rem;
+        .one {
+            background: #8aff8a;
+            font-weight: bold
+        }
+
+        .zero {
+            background: #ffd6d6
+        }
+
+        .card {
+            border-radius: 15px
         }
     </style>
 </head>
 
 <body>
 
-    <h1>หน่วยที่: 4 การลดรูปสมการบูลีน</h1>
-
+    <h1>แผนผังคาร์โนห์ หน่วยที่ 4</h1>
     <div class="container">
 
-        <!-- ข้อ 1 -->
-        <div class="card my-4 border-0">
-            <div class="card-body">
-                <h5>1. f(A,B) = Σm(0,1,2)</h5>
-                <div class="step">
-                    m0=00, m1=01, m2=10 → ทุกกรณียกเว้น 11<br>
-                    จะเป็น 0 แค่ A=1,B=1 ⇒ f = A̅ + B̅
-                </div>
-                <p><strong>คำตอบ:</strong> <span class="math">f = A̅ + B̅</span></p>
-            </div>
+        <!-- ข้อ1 -->
+        <div class="card p-3 mb-4">
+            <h5>1) f(A,B) = Σm(0,1,2)</h5>
+            <table class="kmap w-50 mx-auto">
+                <tr>
+                    <th>A\B</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                </tr>
+            </table>
+            <p class="mt-2"><b>f = A̅ + B̅</b></p>
         </div>
 
-        <!-- ข้อ 2 -->
-        <div class="card my-4 border-0">
-            <div class="card-body">
-                <h5>2. f(A,B) = ΠM(0,1,2)</h5>
-                <div class="step">
-                    เป็น 0 ที่ 00,01,10 และเป็น 1 แค่ 11 ⇒ f = AB
-                </div>
-                <p><strong>คำตอบ:</strong> <span class="math">f = AB</span></p>
-            </div>
+        <!-- ข้อ2 -->
+        <div class="card p-3 mb-4">
+            <h5>2) f(A,B) = ΠM(0,1,2)</h5>
+            <table class="kmap w-50 mx-auto">
+                <tr>
+                    <th>A\B</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                </tr>
+            </table>
+            <p><b>f = AB</b></p>
         </div>
 
-        <!-- ข้อ 3.1 -->
-        <div class="card my-4 border-0">
-            <div class="card-body">
-                <h5>3.1 f(A,B,C) = Σm(0,1,2,3,4,5)</h5>
-                <div class="step">
-                    เป็น 0 แค่ 110 และ 111 ⇒ A=1,B=1 ⇒ f = A̅ + B̅
-                </div>
-                <p><strong>คำตอบ:</strong> <span class="math">f = A̅ + B̅</span></p>
-            </div>
+        <!-- ข้อ3.1 -->
+        <div class="card p-3 mb-4">
+            <h5>3.1) f(A,B,C) = Σm(0,1,2,3,4,5)</h5>
+            <table class="kmap w-75 mx-auto">
+                <tr>
+                    <th>AB\C</th>
+                    <th>0</th>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+            </table>
+            <p><b>f = A̅ + B̅</b></p>
         </div>
 
-        <!-- ข้อ 3.2 -->
-        <div class="card my-4 border-0">
-            <div class="card-body">
-                <h5>3.2 f(A,B,C,D) = ΠM(0,1,2,3,7,8,9,10,11,15)</h5>
-                <div class="step">
-                    ตัวที่เป็น 1 คือ 4,5,6,12,13,14<br>
-                    จัดกลุ่ม K-map ⇒ f = BC̅ + ACD̅
-                </div>
-                <p><strong>คำตอบ:</strong> <span class="math">f = BC̅ + ACD̅</span></p>
-            </div>
+        <!-- ข้อ3.2 -->
+        <div class="card p-3 mb-4">
+            <h5>3.2) f(A,B,C,D)</h5>
+            <table class="kmap w-100">
+                <tr>
+                    <th>AB\CD</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+            </table>
+            <p><b>f = B C̅ + A C D̅</b></p>
         </div>
 
-        <!-- ข้อ 4.1 -->
-        <div class="card my-4 border-0">
-            <div class="card-body">
-                <h5>4.1 f(A,B,C,D) = Σm(1,3,5,7,9)</h5>
-                <div class="step">
-                    ทุกตัวมี D = 1<br>
-                    จัดกลุ่ม K-map จะได้กลุ่ม 1,3,5,7 ⇒ A̅D และกลุ่ม 1,9 ⇒ B̅C̅D<br>
-                    ดังนั้น f = A̅D + B̅C̅D = D(A̅ + B̅C̅)
-                </div>
-                <p><strong>คำตอบ:</strong> <span class="math">f = D(A̅ + B̅C̅)</span></p>
-            </div>
+        <!-- ข้อ4.1 -->
+        <div class="card p-3 mb-4">
+            <h5>4.1) f(A,B,C,D)</h5>
+            <table class="kmap w-100">
+                <tr>
+                    <th>AB\CD</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                    <td class="zero">0</td>
+                </tr>
+            </table>
+            <p><b>f = D(A̅ + B̅C̅)</b></p>
         </div>
 
-
-        <!-- ข้อ 4.2 -->
-        <div class="card my-4 border-0">
-            <div class="card-body">
-                <h5>4.2 f(A,B,C,D) = ΠM(0,2,4,6,8)</h5>
-                <div class="step">
-                    ทำ K-map จะได้กลุ่มของค่า 1 ครอบคลุมทุกช่องที่ B=1, C=1 หรือ D=1<br>
-                    จึงสามารถลดรูปได้เป็น f = B + C + D
-                </div>
-                <p><strong>คำตอบ:</strong> <span class="math">f = B + C + D</span></p>
-            </div>
+        <!-- ข้อ4.2 -->
+        <div class="card p-3 mb-4">
+            <h5>4.2) f(A,B,C,D)</h5>
+            <table class="kmap w-100">
+                <tr>
+                    <th>AB\CD</th>
+                    <th>00</th>
+                    <th>01</th>
+                    <th>11</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>00</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>01</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                </tr>
+                <tr>
+                    <th>11</th>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                </tr>
+                <tr>
+                    <th>10</th>
+                    <td class="zero">0</td>
+                    <td class="one">1</td>
+                    <td class="one">1</td>
+                    <td class="zero">0</td>
+                </tr>
+            </table>
+            <p><b>f = B + C + D</b></p>
         </div>
-
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
