@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน่วยที่ 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #f8f9fa;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1B3C53;
+            text-align: center;
+        }
+
+        .card-body {
+            background: #E3E3E3;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .math {
+            font-family: monospace;
+        }
+
+        .step {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        pre {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>หน่วยที่ 5 Encoder และ 7-Segment</h1>
+    <div class="container">
+
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>1.1 Problem Statement</h5>
+                <div class="step">
+                    ออกแบบวงจร Encoder จากสวิตช์ 10 ตัว (0–9) แปลงเป็น Binary แบบ 1’s Complement 4 บิต
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>1.2 Conceptualization</h5>
+                <div class="step">
+                    <table class="table table-bordered text-center bg-white">
+                        <tr>
+                            <th>Decimal</th>
+                            <th>Binary</th>
+                            <th>1's Complement</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0000</td>
+                            <td>1111</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0001</td>
+                            <td>1110</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0010</td>
+                            <td>1101</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0011</td>
+                            <td>1100</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0100</td>
+                            <td>1011</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0101</td>
+                            <td>1010</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0110</td>
+                            <td>1001</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0111</td>
+                            <td>1000</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>1000</td>
+                            <td>0111</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>1001</td>
+                            <td>0110</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>1.3 Solution / Simplification</h5>
+                <div class="step math">
+                    Y3 = D0+D1+D2+D3+D4+D5+D6+D7<br>
+                    Y2 = D0+D1+D2+D3+D8+D9<br>
+                    Y1 = D0+D1+D4+D5+D8+D9<br>
+                    Y0 = D0+D2+D4+D6+D8
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>1.4 Realization</h5>
+                <div class="step">
+                    นำสมการไปสร้างวงจรด้วย OR Gate ตามสมการด้านบน
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-4 border-0">
+            <div class="card-body">
+                <h5>2. LED 7 Segment</h5>
+                <div class="step">
+                    <strong>Common Cathode</strong> : ติดเมื่อ Logic 1 <br>
+                    <strong>Common Anode</strong> : ติดเมื่อ Logic 0
+                </div>
+                <pre>
+Common Cathode (CC)
+  --a--
+ |     |
+ f     b
+ |     |
+  --g--
+ |     |
+ e     c
+ |     |
+  --d--
+    |
+   GND
+</pre>
+
+                <pre>
+Common Anode (CA)
+     Vcc
+      |
+  --a--
+ |     |
+ f     b
+ |     |
+  --g--
+ |     |
+ e     c
+ |     |
+  --d--
+</pre>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
