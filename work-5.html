@@ -174,21 +174,62 @@ D7 ─┘
         <!-- 7 Segment -->
         <div class="card my-4">
             <div class="card-body">
-                <h5>2. LED 7 Segment</h5>
+                <h5>2. LED 7 Segment Display</h5>
 
-                <h6>Common Cathode</h6>
+                <!-- CC -->
+                <h6>2.1 Common Cathode (CC)</h6>
                 <div class="step">
-                    Cathode ของทุก Segment รวมกันต่อ GND
-                    ติดด้วย Logic 1 (HIGH)
+                    <b>โครงสร้างภายใน</b>
+                    <pre>
+        a
+       ───
+    f |   | b
+      | g |
+       ───
+    e |   | c
+       ───
+        d
+
+Cathode ของทุก Segment ต่อรวมกันที่ COM → GND
+            </pre>
+
+                    <b>คุณสมบัติเด่น</b>
+                    <ul>
+                        <li>ขั้วรวมเป็นขั้วลบ (Cathode)</li>
+                        <li>COM ต่อกับ GND</li>
+                        <li>Segment ติดเมื่อป้อน Logic 1 (HIGH)</li>
+                        <li>เข้าใจง่าย เหมาะกับ Arduino และงานทดลอง</li>
+                    </ul>
                 </div>
 
-                <h6>Common Anode</h6>
+                <!-- CA -->
+                <h6>2.2 Common Anode (CA)</h6>
                 <div class="step">
-                    Anode ของทุก Segment รวมกันต่อ Vcc
-                    ติดด้วย Logic 0 (LOW)
+                    <b>โครงสร้างภายใน</b>
+                    <pre>
+        a
+       ───
+    f |   | b
+      | g |
+       ───
+    e |   | c
+       ───
+        d
+
+Anode ของทุก Segment ต่อรวมกันที่ COM → Vcc
+            </pre>
+
+                    <b>คุณสมบัติเด่น</b>
+                    <ul>
+                        <li>ขั้วรวมเป็นขั้วบวก (Anode)</li>
+                        <li>COM ต่อกับ Vcc</li>
+                        <li>Segment ติดเมื่อป้อน Logic 0 (LOW)</li>
+                        <li>เหมาะกับระบบ TTL และงานอุตสาหกรรม</li>
+                    </ul>
                 </div>
             </div>
         </div>
+
 
     </div>
 </body>
