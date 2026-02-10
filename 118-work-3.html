@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน่วยที่ 3 : เฉลย</title>
+    <title>หน่วยที่ 3 : เฉลยละเอียด</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <h1>หน่วยที่ 3 : เซต ฟังก์ชัน และความสัมพันธ์</h1>
+    <h1>หน่วยที่ 3 : เซต ฟังก์ชัน และความสัมพันธ์ (เฉลยละเอียด)</h1>
     <div class="container">
 
         <!-- ข้อ1 -->
@@ -41,7 +41,10 @@
                 <h5>1. เซต</h5>
                 <p>A = {x∈S | -2≤x≤2} , B = {x∈S | -1&lt;x&lt;3}</p>
 
-                <b>เมื่อ S = Z</b>
+                <b>S = Z</b><br>
+                A = {-2,-1,0,1,2}<br>
+                B = {0,1,2}
+
                 <ul>
                     <li>A∪B = {-2,-1,0,1,2}</li>
                     <li>A∩B = {0,1,2}</li>
@@ -51,14 +54,16 @@
                     <li>(A∪B)ᶜ = Z - {-2,-1,0,1,2}</li>
                 </ul>
 
-                <b>เมื่อ S = R</b>
+                <b>S = R</b><br>
+                A=[-2,2], B=(-1,3)
+
                 <ul>
-                    <li>A∪B = [-2,3)</li>
-                    <li>A∩B = (-1,2]</li>
-                    <li>A-B = [-2,-1]</li>
-                    <li>Aᶜ = (-∞,-2) ∪ (2,∞)</li>
+                    <li>A∪B=[-2,3)</li>
+                    <li>A∩B=(-1,2]</li>
+                    <li>A-B=[-2,-1]</li>
+                    <li>Aᶜ=(-∞,-2)∪(2,∞)</li>
                     <li>A ∪ Bᶜ = R</li>
-                    <li>(A∪B)ᶜ = (-∞,-2) ∪ [3,∞)</li>
+                    <li>(A∪B)ᶜ=(-∞,-2)∪[3,∞)</li>
                 </ul>
             </div>
         </div>
@@ -67,23 +72,39 @@
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>2. กฎของเซต</h5>
-                <ul>
-                    <li>a) (A-B)∪(B-A) = (A∪B)-(A∩B) ✔</li>
-                    <li>b) (Bᶜ ∪ (Bᶜ-A)) = B ✔</li>
-                    <li>c) A ∩ ((B ∪ Aᶜ) ∩ Bᶜ) = ∅</li>
-                </ul>
+                <pre>
+A ∩ ((B ∪ Aᶜ) ∩ Bᶜ)
+
+(B ∪ Aᶜ) ∩ Bᶜ
+= (B ∩ Bᶜ) ∪ (Aᶜ ∩ Bᶜ)
+= ∅ ∪ (Aᶜ ∩ Bᶜ)
+= Aᶜ ∩ Bᶜ
+
+A ∩ (Aᶜ ∩ Bᶜ)
+= (A ∩ Aᶜ) ∩ Bᶜ
+= ∅
+</pre>
+                คำตอบ = ∅
             </div>
         </div>
 
         <!-- ข้อ3 -->
         <div class="card my-4 border-0">
             <div class="card-body">
-                <h5>3. Automata (010)</h5>
+                <h5>3. Automata 010</h5>
+                <p>ต้องการ DFA ที่รับสตริงเมื่อพบ “010”</p>
                 <pre>
+สถานะ:
+q0 = เริ่ม
+q1 = เจอ 0
+q2 = เจอ 01
+q3 = เจอ 010 (Accept)
+
+Transition:
 q0: 0→q1 , 1→q0
 q1: 0→q1 , 1→q2
 q2: 0→q3 , 1→q0
-q3: 0/1 → q3 (Accept)
+q3: 0/1 → q3
 </pre>
             </div>
         </div>
@@ -92,8 +113,18 @@ q3: 0/1 → q3 (Accept)
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>4. ฟังก์ชัน</h5>
-                <p>f: Z→Z, f(n)=3n-2 → One-to-One ✔ Onto ✘ Bijection ✘</p>
-                <p>g: R→R, g(n)=3n-2 → One-to-One ✔ Onto ✔ Bijection ✔</p>
+                <pre>
+f: Z→Z, f(n)=3n-2
+
+One-to-One:
+3a-2 = 3b-2 → a=b ✔
+
+Onto:
+3n-2=2 → n=4/3 ไม่ใช่จำนวนเต็ม ✘
+
+g: R→R
+3n-2=y → n=(y+2)/3 ✔
+</pre>
             </div>
         </div>
 
@@ -101,11 +132,16 @@ q3: 0/1 → q3 (Accept)
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>5. Composition</h5>
-                <p>f(n)=2n , g(n)=⌊n/2⌋</p>
-                <ul>
-                    <li>fog = 2⌊n/2⌋</li>
-                    <li>gof = n</li>
-                </ul>
+                <pre>
+fog = f(g(n))
+= f(⌊n/2⌋)
+= 2⌊n/2⌋
+
+gof = g(f(n))
+= g(2n)
+= ⌊2n/2⌋
+= n
+</pre>
             </div>
         </div>
 
@@ -113,8 +149,19 @@ q3: 0/1 → q3 (Accept)
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>6. ความสัมพันธ์</h5>
-                <p>S = {(1,4),(1,5),(1,6),(2,4),(2,6),(3,6)}</p>
-                <p>S⁻¹ = {(4,1),(5,1),(6,1),(4,2),(6,2),(6,3)}</p>
+                <p>A={1,2,3}, B={4,5,6}</p>
+                <p>x S y ⇔ x | y</p>
+
+                <pre>
+1 หาร 4,5,6 → (1,4)(1,5)(1,6)
+2 หาร 4,6 → (2,4)(2,6)
+3 หาร 6 → (3,6)
+
+S = {(1,4),(1,5),(1,6),(2,4),(2,6),(3,6)}
+
+สลับตำแหน่ง:
+S⁻¹={(4,1),(5,1),(6,1),(4,2),(6,2),(6,3)}
+</pre>
             </div>
         </div>
 
@@ -122,14 +169,11 @@ q3: 0/1 → q3 (Accept)
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>7. คุณสมบัติความสัมพันธ์</h5>
-                <ul>
-                    <li>R1 → Antisymmetric</li>
-                    <li>R2 → ไม่เข้าเงื่อนไขใด</li>
-                    <li>R3 → Transitive, Antisymmetric</li>
-                    <li>R4 → Symmetric, Transitive</li>
-                    <li>R5 → ไม่เข้าเงื่อนไข</li>
-                    <li>R6 → ไม่เข้าเงื่อนไข</li>
-                </ul>
+                <pre>
+R1:
+ไม่มี (3,3) → ไม่ reflexive
+มี antisymmetric
+</pre>
             </div>
         </div>
 
@@ -137,8 +181,20 @@ q3: 0/1 → q3 (Accept)
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>8. Transitive Closure</h5>
-                <p>R1⁺ = {(0,0),(0,1),(0,2),(0,3),(1,1),(1,2),(1,3),(2,2),(2,3)}</p>
-                <p>R2⁺ = {(1,1),(1,2),(1,3),(2,1),(2,2)}</p>
+                <pre>
+R1: 0→1→2 → (0,2)
+1→2→3 → (1,3)
+0→1→2→3 → (0,3)
+
+R1⁺ = {(0,0),(0,1),(0,2),(0,3),
+       (1,1),(1,2),(1,3),
+       (2,2),(2,3)}
+
+R2:
+1→2→1 → (1,1)
+
+R2⁺={(1,1),(1,2),(1,3),(2,1),(2,2)}
+</pre>
             </div>
         </div>
 
