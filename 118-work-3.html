@@ -205,17 +205,88 @@ S⁻¹={(4,1),(5,1),(6,1),(4,2),(6,2),(6,3)}
             </div>
         </div>
 
-        <!-- ข้อ7 -->
+        <!-- ข้อ 7 -->
         <div class="card my-4 border-0">
             <div class="card-body">
                 <h5>7. คุณสมบัติความสัมพันธ์</h5>
+
+                <p>กำหนดให้ A = {0,1,2,3}</p>
+                <p>พิจารณาว่าความสัมพันธ์ต่อไปนี้เป็น reflexive, symmetric,
+                    transitive, antisymmetric, equivalence หรือ partial order หรือไม่</p>
+
                 <pre>
-R1:
-ไม่มี (3,3) → ไม่ reflexive
-มี antisymmetric
+นิยามย่อ:
+Reflexive: มี (a,a) ครบทุกตัวใน A
+Symmetric: ถ้า (a,b) ต้องมี (b,a)
+Transitive: ถ้า (a,b) และ (b,c) ต้องมี (a,c)
+Antisymmetric: ถ้า (a,b) และ (b,a) ⇒ a=b
+Equivalence = Reflexive + Symmetric + Transitive
+Partial Order = Reflexive + Antisymmetric + Transitive
 </pre>
+
+                <p><b>a) R₁ = {(0,0),(0,1),(1,1),(1,2),(2,2),(2,3)}</b></p>
+                <pre>
+Reflexive: ✘ ไม่มี (3,3)
+Symmetric: ✘ มี (0,1) แต่ไม่มี (1,0)
+Transitive: ✔ โซ่ต่อกันครบ
+Antisymmetric: ✔ ไม่มีคู่ย้อน
+Equivalence: ✘
+Partial Order: ✘ (ไม่ reflexive)
+</pre>
+
+                <p><b>b) R₂ = {(1,2),(1,3),(2,1),(2,2)}</b></p>
+                <pre>
+Reflexive: ✘
+Symmetric: ✘ (1,3 ไม่มี 3,1)
+Transitive: ✘
+Antisymmetric: ✘ (มี 1↔2)
+Equivalence: ✘
+Partial Order: ✘
+</pre>
+
+                <p><b>c) R₃ = {(0,0),(0,1),(0,2),(1,2)}</b></p>
+                <pre>
+Reflexive: ✘
+Symmetric: ✘
+Transitive: ✔ (0→1→2 มี 0→2)
+Antisymmetric: ✔
+Equivalence: ✘
+Partial Order: ✘
+</pre>
+
+                <p><b>d) R₄ = {(0,0),(1,1)}</b></p>
+                <pre>
+Reflexive: ✘ (ขาด 2,3)
+Symmetric: ✔
+Transitive: ✔
+Antisymmetric: ✔
+Equivalence: ✘
+Partial Order: ✘
+</pre>
+
+                <p><b>e) R₅ = {(0,0),(0,3),(1,0),(1,3),(2,2),(3,3),(3,2)}</b></p>
+                <pre>
+Reflexive: ✘ (ไม่มี 1,1)
+Symmetric: ✘
+Transitive: ✘
+Antisymmetric: ✘
+Equivalence: ✘
+Partial Order: ✘
+</pre>
+
+                <p><b>f) R₆ = {(0,0),(1,0),(1,2),(1,3),(2,0),(2,1),(3,0),(3,2)}</b></p>
+                <pre>
+Reflexive: ✘
+Symmetric: ✘
+Transitive: ✘
+Antisymmetric: ✘
+Equivalence: ✘
+Partial Order: ✘
+</pre>
+
             </div>
         </div>
+
 
         <!-- ข้อ8 -->
         <div class="card my-4 border-0">
